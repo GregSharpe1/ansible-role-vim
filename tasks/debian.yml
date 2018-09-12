@@ -1,0 +1,6 @@
+---
+
+- name: Install the basic Vim package
+  package:
+    name: "vim"
+    state: present

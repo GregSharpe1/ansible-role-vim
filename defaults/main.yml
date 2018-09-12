@@ -1,0 +1,10 @@
+---
+# defaults file for ansible-role-vim
+
+# For example I place my vimrc within my dotfiles in the below var.
+# https://raw.githubusercontent.com/GregSharpe1/dotfiles/master/vimrc
+vimrc_external_source: []
+vim_users: []
+
+vundle_config_dir: "~/.vim"
+vundle_repo: "git://github.com/VundleVim/Vundle.vim.git"

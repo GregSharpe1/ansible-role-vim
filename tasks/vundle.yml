@@ -1,0 +1,27 @@
+---
+
+- name: Make Vim directory
+  become: false
+  file:
+    path: "{{ vundle_config_dir }}"
+    state: directory
+
+- name: Make Vim bundle directory
+  become: false
+  file:
+    path: "{{ vundle_config_dir }}/bundle"
+    state: directory
+
+- name: Clone vundle
+  become: false
+  git:
+    repo: "{{ vundle_repo }}"
+    dest: "{{ vundle_config_dir }}/bundle/Vundle.vim"
+    accept_hostkey: "no"
+    version: "master"
+
+- name: Install Vim plugins
+  become: "{{ item }}"
+  command: "vim +PluginInstall +qall"
+  with_items:
+    - "{{ vim_users }}"
